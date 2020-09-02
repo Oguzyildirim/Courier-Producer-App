@@ -1,0 +1,25 @@
+version: '2'
+services:
+  courierproducer-app:
+    image: courierproducerapp
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - SPRING_DATA_MONGODB_URI=mongodb://store-mongodb:27017
+      - SPRING_DATA_MONGODB_DATABASE=store
+      - KAFKA_BOOTSTRAPSERVERS=kafka:9092
+  courierproducer-mongodb:
+    extends:
+      file: mongodb.yml
+      service: store-mongodb
+  kafka:
+    extends:
+      file: kafka.yml
+      service: kafka
+    environment:
+      - KAFKA_ADVERTISED_HOST_NAME=kafka
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+  zookeeper:
+    extends:
+      file: kafka.yml
+      service: zookeeper
