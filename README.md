@@ -6,7 +6,7 @@ To start your application in the dev profile, run:
 
     ./gradlew
 
-App has a very basic UI and there is a link for REST endpoint of open API docs, and under /api/users you can find User related endpoints(i will share postman docs) and at /management you can find spring actuator endpoints.
+App has a very basic UI and there is a link for REST endpoint of open API docs, and under /api/couriers you can find Courier related endpoints(i will share postman docs) and at /management you can find spring actuator endpoints.
 
 ### API-First development
 
